@@ -34,7 +34,7 @@ public class DEV_Tele_1 extends OpMode {
     public void loop(){
         //drive system
         double leftPower = -gamepad1.left_stick_y;
-        double rightPower = -gamepad1.right_stick_y;
+        double rightPower = gamepad1.right_stick_y;
 
         // Send calculated power to the two motors
         leftDrive.setPower(leftPower);
@@ -43,9 +43,11 @@ public class DEV_Tele_1 extends OpMode {
         //launcher control
         if(gamepad1.right_trigger > 0.001){
             launcher.setPower(1);
+            windmill.setPower(0.5);
         }
         else{
             launcher.setPower(0);
+            windmill.setPower(0);
         }
         //intake
         if(gamepad1.left_trigger > 0.001){
